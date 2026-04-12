@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Pongthanin Wangkiat</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Expand/Collapse specific to this page */
+    .card-detail {
+      display: none;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      animation: fadeDown 0.3s ease;
+    }
+    
+    .card-detail.open {
+      display: block;
+    }
+    
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="header-container"></div>
+
+  <main class="container">
+    <section>
+      <span class="section-tag">Case Studies</span>
+      <h1 class="section-title">Selected Work</h1>
+      
+      <div class="grid">
+        
+        <!-- PROJECT 1 -->
+        <div class="card">
+          <div class="project-meta">
+            <span class="project-number">01 / RESEARCH</span>
+            <div class="project-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+          <h2 class="project-title">ML Prediction of E-commerce Customer Satisfaction Score</h2>
+          <div class="project-subtitle">Srinakharinwirot University · M.Sc. Thesis → IEEE Published</div>
+          <p class="project-desc">
+            Designed and implemented a multi-class classification pipeline to predict customer satisfaction (Low / Average / Good / Excellent) from the Olist Brazilian e-commerce dataset (~102,700 orders). Proposed novel feature engineering around delivery duration and product rating history.
+          </p>
+          <button class="btn btn-outline" onclick="toggleProject(this)">View Details</button>
+          
+          <div class="card-detail">
+            <div class="project-metrics">
+              <div>
+                <div class="metric-label">Best Model — RF Macro F1</div>
+                <div class="metric-val">0.32</div>
+              </div>
+              <div>
+                <div class="metric-label">RF Recall — Low Class</div>
+                <div class="metric-val">0.43</div>
+              </div>
+              <div>
+                <div class="metric-label">Dataset Size</div>
+                <div class="metric-val">102K</div>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Engineered delivery performance, seller & product rating mean/SD features from scratch — top 4 features in RF importance ranking</li>
+              <li>Compared RF, K-NN, and Logistic Regression against a baseline (average product rating) — RF outperformed all in every metric</li>
+              <li>Applied SMOTE oversampling + RandomUnderSampler + GridSearchCV (StratifiedKFold n=5) to handle severe class imbalance</li>
+              <li>Prevented data leakage by computing rating features on train set only, then mapping to test set by seller/product ID</li>
+              <li>Published in IEEE; research cited as evidence that delivery duration + rating score are primary satisfaction drivers</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="card">
+          <div class="project-meta">
+            <span class="project-number">02 / BI & REPORTING</span>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">SQL</span>
+              <span class="tag">FMCG</span>
+            </div>
+          </div>
+          <h2 class="project-title">Makro Offtake Monitoring Dashboard</h2>
+          <div class="project-subtitle">Suntory Beverage & Food Thailand · Feb 2024 – Present</div>
+          <p class="project-desc">
+            Built and owned an end-to-end Power BI dashboard tracking General Trade (GT) channel offtake for Makro. Consolidated complex multi-source sales datasets via SQL/Power Query, enabling weekly and monthly performance reviews for senior and executive management.
+          </p>
+          <button class="btn btn-outline" onclick="toggleProject(this)">View Details</button>
+          
+          <div class="card-detail">
+            <div class="project-metrics">
+              <div>
+                <div class="metric-label">Forecast Accuracy (Lag 3)</div>
+                <div class="metric-val">80.8%</div>
+              </div>
+              <div>
+                <div class="metric-label">Forecast Bias</div>
+                <div class="metric-val">−0.94%</div>
+              </div>
+              <div>
+                <div class="metric-label">OSA Improvement</div>
+                <div class="metric-val">+4.7pt</div>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Automated SQL/Power Query pipelines to replace manual Excel consolidation, reducing data preparation time significantly</li>
+              <li>Dashboard used by Regional Sales Managers to identify offtake gaps and adjust promotional spend in near real-time</li>
+              <li>Integrated forecast accuracy and bias KPIs aligned to the 365 promotion calendar and corporate targets</li>
+              <li>Bridged sales forecasting with supply chain planning, directly lifting On-Shelf Availability by 4.7 percentage points</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="card">
+          <div class="project-meta">
+            <span class="project-number">03 / PLANNING TOOL</span>
+            <div class="project-tags">
+              <span class="tag">Excel / VBA</span>
+              <span class="tag">Sales Planning</span>
+            </div>
+          </div>
+          <h2 class="project-title">Bottom-Up SKU-Level Planning File & G2N Enhancement</h2>
+          <div class="project-subtitle">Suntory Beverage & Food Thailand · Feb 2024 – Present</div>
+          <p class="project-desc">
+            Designed a Bottom-Up planning model at SKU × region granularity, enabling Regional Sales Managers to integrate field-level market knowledge into the corporate forecast. Also built a Gross-to-Net (G2N) financial control layer for transparent budget oversight.
+          </p>
+          <button class="btn btn-outline" onclick="toggleProject(this)">View Details</button>
+          
+          <div class="card-detail">
+            <div class="project-metrics">
+              <div>
+                <div class="metric-label">Scope</div>
+                <div class="metric-val">7+</div>
+              </div>
+              <div>
+                <div class="metric-label">Award</div>
+                <div class="metric-val">Q3 '24</div>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Replaced manual multi-step Excel processes used by 10+ Regional Managers with a structured, error-resistant planning file</li>
+              <li>G2N enhancement provided CFO-level visibility into trade spend, promotional discounts, and net revenue by account</li>
+              <li>Standardized the annual and monthly planning cycle cadence across the entire GT commercial team</li>
+              <li>Won Best Head Office Support award (Sales Operations & Capability department, Q3 2024) for impact delivered</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="card">
+          <div class="project-meta">
+            <span class="project-number">04 / DATA ANALYSIS</span>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">SQL</span>
+              <span class="tag">E-commerce</span>
+            </div>
+          </div>
+          <h2 class="project-title">Flash Sales Performance Factor Model</h2>
+          <div class="project-subtitle">Shopee Thailand · Oct 2021 – May 2023</div>
+          <p class="project-desc">
+            Collaborated with Shopee's Business Intelligence team to build a model identifying key drivers of Flash Sales performance. Performed end-to-end SQL querying, feature engineering, and EDA to surface actionable insights for category and campaign planning.
+          </p>
+          <button class="btn btn-outline" onclick="toggleProject(this)">View Details</button>
+          
+          <div class="card-detail">
+            <div class="project-metrics">
+              <div>
+                <div class="metric-label">Portfolio Managed</div>
+                <div class="metric-val">THB 30M</div>
+              </div>
+              <div>
+                <div class="metric-label">AMS Adoption Growth</div>
+                <div class="metric-val">+295%</div>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Executed SQL queries on large-scale transaction tables to identify features correlated with Flash Sales GMV uplift</li>
+              <li>Applied feature engineering and EDA techniques — identical methodology to academic ML research — in a commercial setting</li>
+              <li>Power BI dashboards tracked %GMV, MoM growth, and price grouping for 30 top sellers in the category</li>
+              <li>Insights from model directly informed campaign participation strategy and seller negotiation for pricing and assortment</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="card">
+          <div class="project-meta">
+            <span class="project-number">05 / ACCOUNT ANALYTICS</span>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">E-commerce</span>
+              <span class="tag">KAM</span>
+            </div>
+          </div>
+          <h2 class="project-title">Seller Performance Analytics & P&L Management — Lazada</h2>
+          <div class="project-subtitle">Lazada Thailand · Jun 2023 – Jan 2024</div>
+          <p class="project-desc">
+            Managed data-driven account growth for 43 SME sellers, achieving 100%+ of sales targets for 6 consecutive months. Leveraged Power BI weekly/monthly performance reviews to identify revenue, orders, and traffic gaps and prescribe corrective actions.
+          </p>
+          <button class="btn btn-outline" onclick="toggleProject(this)">View Details</button>
+          
+          <div class="card-detail">
+            <div class="project-metrics">
+              <div>
+                <div class="metric-label">Sales Target Achievement</div>
+                <div class="metric-val">100%+</div>
+              </div>
+              <div>
+                <div class="metric-label">Sellers Managed</div>
+                <div class="metric-val">43</div>
+              </div>
+            </div>
+            <ul class="bullet-list">
+              <li>Analyzed P&L, revenue, and gross margin per seller; translated complex data into prioritized action plans for account growth</li>
+              <li>Used Power BI dashboards to evaluate seller performance weekly and monthly, sharing data-backed recommendations</li>
+              <li>Planned YoY growth, campaign adoption, and advertising investment allocations using data-driven approach</li>
+              <li>Supported sellers on channel optimization, audience targeting, and budget allocation based on analytical insights</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleProject(btn) {
+      const detail = btn.nextElementSibling;
+      const isOpen = detail.classList.toggle('open');
+      btn.textContent = isOpen ? 'Hide Details' : 'View Details';
+    }
+  </script>
+</body>
+</html>
